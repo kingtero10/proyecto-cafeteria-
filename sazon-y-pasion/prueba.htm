@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Barra de Registro</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+    <div id="alert-container"></div>
+    <form id="register-form" onsubmit="submitForm(event)">
+        <input type="text" id="username" placeholder="Nombre de usuario" required>
+        <input type="password" id="password" placeholder="Contraseña" required>
+        <input type="email" id="email" placeholder="Correo electrónico" required>
+        <button type="submit">Registrarse</button>
+    </form>
+    <style>
+        
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+    }
+    
+    
+    #alert-container {
+        width: 400px;
+        margin: 20px auto;
+    }
+    
+    .alert {
+        padding: 10px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+    }
+    
+    .alert-success {
+        background-color: #dff0d8;
+        color: #3c763d;
+    }
+    
+    .alert-danger {
+        background-color: #f2dede;
+        color: #a94442;
+    }
+    
+    form {
+        width: 400px;
+        margin: 0 auto;
+    }
+    
+    input,
+    button {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 10px;
+    }
+    
+    button {
+        background-color: #333;
+        color: #fff;
+        border: none;
+    }
+</style>
+<script>
+    function showAlert(message, type) {
+    var alertDiv = document.createElement('div');
+    alertDiv.className = 'alert ' + type;
+    alertDiv.appendChild(document.createTextNode(message));
+    var alertContainer = document.getElementById('alert-container');
+    alertContainer.appendChild(alertDiv);
+    setTimeout(function() {
+        alertDiv.remove();
+    }, 3000);
+}
+
+function submitForm(event) {
+    event.preventDefault();
+
+    var username = document.getElementById('username').value;
+    var password = document.getElementById('password').value;
+    var email = document.getElementById('email').value;
+
+    // Aquí puedes realizar la validación de los campos del formulario
+
+    // Ejemplo de validación simple
+    if (username === '' || password === '' || email === '') {
+        showAlert('Por favor, completa todos los campos', 'alert-danger');
+    } else {
+        // Aquí puedes realizar el envío del formulario o cualquier otra acción
+        showAlert('Registro exitoso', 'alert-success');
+
+        // Limpiar los campos del formulario después del registro
+        document.getElementById('username').value = '';
+        document.getElementById('password').value = '';
+        document.getElementById('email').value = '';
+    }
+}
+
+</script>
+</body>
+</html>

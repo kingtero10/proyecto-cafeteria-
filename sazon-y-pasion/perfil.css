@@ -1,0 +1,16 @@
+body{
+    
+    align-items: center;
+    justify-content: center;
+}
+.portada img{
+    width: 100vh;
+    display: flex;
+}
+.portada{
+
+}
+.perfil img{
+    width: 20vh; ;
+}
+
